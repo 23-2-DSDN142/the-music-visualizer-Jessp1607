@@ -1,11 +1,26 @@
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  background(20)
+  background(225, 50)
+
+  var ballSize = map(50, 0,100, 40, 150);
+
+  var drumHeight = map(drum, -200,400, height, 0*ballSize/2);
+
+  fill(242, 187, 48);
+  ellipse(width/2, drumHeight, ballSize);
+  fill(209, 109, 209);
+  ellipse(width/2, drumHeight-70, 70);
+
   textFont('Helvetica'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
 
+   // display "words"
+   textAlign(CENTER);
+   textSize(vocal);
+   text(words, width/2, height/3);
+/** 
    let bar_spacing = height / 10;
    let bar_height = width / 12;
    let bar_pos_x = width / 2;
@@ -36,8 +51,5 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    text("other", bar_pos_x, height / 2 + 4 * bar_spacing + 8);
    fill(255, 255, 0);
  
-   // display "words"
-   textAlign(CENTER);
-   textSize(vocal);
-   text(words, width/2, height/3);
+   */
 }
