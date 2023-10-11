@@ -6,11 +6,15 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   var ballSize = map(50, 0,100, 40, 150);
 
   var drumHeight = map(drum, -200,400, height, 0*ballSize/2);
+  var bassHeight = map(bass, -200,400, height, 0*ballSize/2);
+  var otherHeight = map(other, -200,400, height, 0*ballSize/2);
 
-  fill(242, 187, 48);
-  ellipse(width/2, drumHeight, ballSize);
   fill(209, 109, 209);
-  ellipse(width/2, drumHeight-140, 70);
+  ellipse(width/1.5, height/1.5, bassHeight-300);
+  fill(69, 160, 217);
+  ellipse(width/2, height/2, drumHeight-300);
+  fill(242, 187, 48);
+  ellipse(width/3, height/3, otherHeight-300);
 
   textFont('Helvetica'); // please use CSS safe fonts
   rectMode(CENTER)
