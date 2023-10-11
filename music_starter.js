@@ -1,7 +1,7 @@
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  background(225, 50)
+  background(26, 15, 15)
 
   var ballSize = map(50, 0,100, 40, 150);
 
@@ -10,7 +10,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   fill(242, 187, 48);
   ellipse(width/2, drumHeight, ballSize);
   fill(209, 109, 209);
-  ellipse(width/2, drumHeight-70, 70);
+  ellipse(width/2, drumHeight-140, 70);
 
   textFont('Helvetica'); // please use CSS safe fonts
   rectMode(CENTER)
