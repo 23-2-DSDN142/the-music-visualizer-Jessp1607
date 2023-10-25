@@ -1,43 +1,54 @@
-
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
+let firstRun = true
+let man = [];
+let jump = [];
+
+
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  background(20)
-  textFont('Helvetica'); // please use CSS safe fonts
-  rectMode(CENTER)
-  textSize(24);
+  colorMode(HSB, 100);
+  background(0);
+  rectMode(CENTER);
+  strokeWeight(6)
+  noFill();
+  stroke(bass, 100, 100)
+  
 
-   let bar_spacing = height / 10;
-   let bar_height = width / 12;
-   let bar_pos_x = width / 2;
- 
+  var bassMap = map(bass, 0,100, 10, 100);
 
-   // vocal bar is red
-   fill(200, 0, 0);
-   rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
-   fill(0);
-   text("vocals", bar_pos_x, height / 2 + 1 * bar_spacing + 8);
- 
-   // drum bar is green
-   fill(0, 200, 0);
-   rect(bar_pos_x, height / 2 + 2 * bar_spacing, 4 * drum, bar_height);
-   fill(0);
-   text("drums", bar_pos_x, height / 2 + 2 * bar_spacing + 8);
- 
-   // bass bar is blue
-   fill(50, 50, 240);
-   rect(bar_pos_x, height / 2 + 3 * bar_spacing, 4 * bass, bar_height);
-   fill(0);
-   text("bass", bar_pos_x, height / 2 + 3 * bar_spacing + 8);
- 
-   // other bar is white
-   fill(200, 200, 200);
-   rect(bar_pos_x, height / 2 + 4 * bar_spacing, 4 * other, bar_height);
-   fill(0);
-   text("other", bar_pos_x, height / 2 + 4 * bar_spacing + 8);
-   fill(255, 255, 0);
- 
-   // display "words"
-   textAlign(CENTER);
-   textSize(vocal);
-   text(words, width/2, height/3);
+  for(var ii = 1; ii <= 18; ii++){
+    var yStep = ii*50;
+  for(var i = 1; i <= 10; i++){
+   ellipse(50 * i, yStep, bassMap);
+  }
+
+  }
+strokeWeight(400)
+  ellipse(width/2,height/2,300,300)
+
+if(firstRun){
+  rectMode(CENTER);
+
+  jump.push(loadImage('Somersault Man Sequence-22.png'));
+  jump.push(loadImage('Somersault Man Sequence-23.png'));
+  jump.push(loadImage('Somersault Man Sequence-24.png'));
+  jump.push(loadImage('Somersault Man Sequence-25.png'));
+  jump.push(loadImage('Somersault Man Sequence-26.png'));
+  jump.push(loadImage('Somersault Man Sequence-27.png'));
+  jump.push(loadImage('Somersault Man Sequence-28.png'));
+  jump.push(loadImage('Somersault Man Sequence-29.png'));
+  jump.push(loadImage('Somersault Man Sequence-30.png'));
+  jump.push(loadImage('Somersault Man Sequence-31.png'));
+  //jump.push(loadImage('Somersault Man Sequence-32.png'));
+
+
+  firstRun = false
 }
+
+var OtherFrame = int(map(bass,10,100,0,6));
+push();
+image(jump[OtherFrame], width/12, height/3.5)
+scale(0.5)
+pop();
+
+}
+
